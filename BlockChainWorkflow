@@ -1,4 +1,5 @@
 ###For my convenience, I am giving comments here as double hashtagged lines
+###Just copy paste my workflow here to refer later
 
 
 deltonmyalil@ubuntu:~$ cd ChainSkills/private
@@ -137,3 +138,120 @@ Address: {af33ea8fd03dfd2c6d59466da269d76964730a96}
 deltonmyalil@ubuntu:~/ChainSkills/private$ 
 
 ###Note: password: for all three accounts: pass1234
+###Go ahead and make the startnode.sh file and the password.sec file mentioned in the sh file
+deltonmyalil@ubuntu:~/ChainSkills/private$ atom startnode.sh
+
+###startnode.sh contains : geth --networkid 4224 --mine --minerthreads 2 --datadir "." --nodiscover --rpc --rpcport "8545" --port "30303" --rpccorsdomain "*" --nat "any" --rpcapi eth,web3,personal,net --unlock 0 --password ./password.sec --ipcpath "~/.ethereum/geth.ipc" 
+###in a single line
+
+###password.sec contains our pre created password pass1234
+
+###Make startnode.sh executable as follows
+deltonmyalil@ubuntu:~/ChainSkills/private$ chmod +x startnode.sh
+
+###Now run it
+deltonmyalil@ubuntu:~/ChainSkills/private$ ./startnode.sh
+
+###Make sure that HTTP endpoint and IPC endpoint are correct. Also, it will start mining right away
+
+INFO [04-26|21:18:54] Maximum peer count                       ETH=25 LES=0 total=25
+INFO [04-26|21:18:54] Starting peer-to-peer node               instance=Geth/v1.8.6-stable-12683fec/linux-amd64/go1.10
+INFO [04-26|21:18:54] Allocated cache and file handles         database=/home/deltonmyalil/ChainSkills/private/geth/chaindata cache=768 handles=512
+INFO [04-26|21:18:54] Initialised chain configuration          config="{ChainID: 4224 Homestead: 1 DAO: <nil> DAOSupport: false EIP150: 2 EIP155: 3 EIP158: 3 Byzantium: 4 Constantinople: <nil> Engine: ethash}"
+INFO [04-26|21:18:54] Disk storage enabled for ethash caches   dir=/home/deltonmyalil/ChainSkills/private/geth/ethash count=3
+INFO [04-26|21:18:54] Disk storage enabled for ethash DAGs     dir=/home/deltonmyalil/.ethash                         count=2
+INFO [04-26|21:18:54] Initialising Ethereum protocol           versions="[63 62]" network=4224
+INFO [04-26|21:18:54] Loaded most recent local header          number=0 hash=ee43f7…7d6a0a td=524288
+INFO [04-26|21:18:54] Loaded most recent local full block      number=0 hash=ee43f7…7d6a0a td=524288
+INFO [04-26|21:18:54] Loaded most recent local fast block      number=0 hash=ee43f7…7d6a0a td=524288
+INFO [04-26|21:18:54] Loaded local transaction journal         transactions=0 dropped=0
+INFO [04-26|21:18:54] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [04-26|21:18:54] Starting P2P networking 
+INFO [04-26|21:18:54] RLPx listener up                         self="enode://fb6c2aac85bce96a54980ed70ea6b0a042ad13ebd075951bb8e876e5a102435489367ea17054d27a11d360155f026dc1bfa275fad07db7f6b2519324d4f64c87@[::]:30303?discport=0"
+INFO [04-26|21:18:54] IPC endpoint opened                      url=/home/deltonmyalil/.ethereum/geth.ipc
+INFO [04-26|21:18:54] HTTP endpoint opened                     url=http://127.0.0.1:8545                 cors=* vhosts=localhost
+WARN [04-26|21:18:54] ------------------------------------------------------------------- 
+WARN [04-26|21:18:54] Referring to accounts by order in the keystore folder is dangerous! 
+WARN [04-26|21:18:54] This functionality is deprecated and will be removed in the future! 
+WARN [04-26|21:18:54] Please use explicit addresses! (can search via `geth account list`) 
+WARN [04-26|21:18:54] ------------------------------------------------------------------- 
+INFO [04-26|21:18:55] Unlocked account                         address=0xEF29e4691DA3EF7F730a1908806A99B2855AB080
+INFO [04-26|21:18:55] Transaction pool price threshold updated price=18000000000
+INFO [04-26|21:18:55] Etherbase automatically configured       address=0xEF29e4691DA3EF7F730a1908806A99B2855AB080
+INFO [04-26|21:18:55] Starting mining operation 
+INFO [04-26|21:18:55] Commit new mining work                   number=1 txs=0 uncles=0 elapsed=160.197µs
+2018/04/26 21:18:56 ssdp: got unexpected search target result "urn:schemas-upnp-org:device:WANConnectionDevice:1"
+2018/04/26 21:18:56 ssdp: got unexpected search target result "urn:schemas-upnp-org:device:WANConnectionDevice:1"
+2018/04/26 21:18:56 ssdp: got unexpected search target result "urn:schemas-upnp-org:device:WANConnectionDevice:1"
+INFO [04-26|21:18:56] Mapped network port                      proto=tcp extport=30303 intport=30303 interface="UPNP IGDv1-IP1"
+INFO [04-26|21:18:59] Generating DAG in progress               epoch=0 percentage=0 elapsed=2.706s
+INFO [04-26|21:19:01] Generating DAG in progress               epoch=0 percentage=1 elapsed=5.359s
+INFO [04-26|21:19:04] Generating DAG in progress               epoch=0 percentage=2 elapsed=7.949s
+INFO [04-26|21:19:07] Generating DAG in progress               epoch=0 percentage=3 elapsed=10.544s
+INFO [04-26|21:19:09] Generating DAG in progress               epoch=0 percentage=4 elapsed=13.112s
+INFO [04-26|21:19:12] Generating DAG in progress               epoch=0 percentage=5 elapsed=15.771s
+INFO [04-26|21:19:14] Generating DAG in progress               epoch=0 percentage=6 elapsed=18.450s
+INFO [04-26|21:19:17] Generating DAG in progress               epoch=0 percentage=7 elapsed=21.104s
+INFO [04-26|21:19:20] Generating DAG in progress               epoch=0 percentage=8 elapsed=24.234s
+INFO [04-26|21:19:23] Generating DAG in progress               epoch=0 percentage=9 elapsed=26.996s
+INFO [04-26|21:19:26] Generating DAG in progress               epoch=0 percentage=10 elapsed=29.749s
+INFO [04-26|21:19:28] Generating DAG in progress               epoch=0 percentage=11 elapsed=32.446s
+INFO [04-26|21:19:31] Generating DAG in progress               epoch=0 percentage=12 elapsed=35.078s
+INFO [04-26|21:19:34] Generating DAG in progress               epoch=0 percentage=13 elapsed=37.646s
+INFO [04-26|21:19:36] Generating DAG in progress               epoch=0 percentage=14 elapsed=40.308s
+INFO [04-26|21:19:39] Generating DAG in progress               epoch=0 percentage=15 elapsed=42.889s
+INFO [04-26|21:19:41] Generating DAG in progress               epoch=0 percentage=16 elapsed=45.394s
+INFO [04-26|21:19:44] Generating DAG in progress               epoch=0 percentage=17 elapsed=48.119s
+INFO [04-26|21:19:47] Generating DAG in progress               epoch=0 percentage=18 elapsed=50.656s
+INFO [04-26|21:19:49] Generating DAG in progress               epoch=0 percentage=19 elapsed=53.190s
+INFO [04-26|21:19:52] Generating DAG in progress               epoch=0 percentage=20 elapsed=55.715s
+INFO [04-26|21:19:54] Generating DAG in progress               epoch=0 percentage=21 elapsed=58.301s
+INFO [04-26|21:19:57] Generating DAG in progress               epoch=0 percentage=22 elapsed=1m0.939s
+INFO [04-26|21:19:59] Generating DAG in progress               epoch=0 percentage=23 elapsed=1m3.474s
+INFO [04-26|21:20:02] Generating DAG in progress               epoch=0 percentage=24 elapsed=1m6.070s
+INFO [04-26|21:20:05] Generating DAG in progress               epoch=0 percentage=25 elapsed=1m8.592s
+INFO [04-26|21:20:07] Generating DAG in progress               epoch=0 percentage=26 elapsed=1m11.113s
+INFO [04-26|21:20:10] Generating DAG in progress               epoch=0 percentage=27 elapsed=1m13.951s
+INFO [04-26|21:20:13] Generating DAG in progress               epoch=0 percentage=28 elapsed=1m16.607s
+INFO [04-26|21:20:15] Generating DAG in progress               epoch=0 percentage=29 elapsed=1m19.200s
+INFO [04-26|21:20:18] Generating DAG in progress               epoch=0 percentage=30 elapsed=1m21.806s
+INFO [04-26|21:20:21] Generating DAG in progress               epoch=0 percentage=31 elapsed=1m24.574s
+INFO [04-26|21:20:23] Generating DAG in progress               epoch=0 percentage=32 elapsed=1m27.157s
+INFO [04-26|21:20:26] Generating DAG in progress               epoch=0 percentage=33 elapsed=1m29.929s
+INFO [04-26|21:20:29] Generating DAG in progress               epoch=0 percentage=34 elapsed=1m32.505s
+INFO [04-26|21:20:31] Generating DAG in progress               epoch=0 percentage=35 elapsed=1m35.167s
+INFO [04-26|21:20:33] Generating DAG in progress               epoch=0 percentage=36 elapsed=1m37.249s
+INFO [04-26|21:20:36] Generating DAG in progress               epoch=0 percentage=37 elapsed=1m39.504s
+INFO [04-26|21:20:38] Generating DAG in progress               epoch=0 percentage=38 elapsed=1m41.839s
+INFO [04-26|21:20:40] Generating DAG in progress               epoch=0 percentage=39 elapsed=1m44.448s
+INFO [04-26|21:20:42] Generating DAG in progress               epoch=0 percentage=40 elapsed=1m46.410s
+INFO [04-26|21:20:45] Generating DAG in progress               epoch=0 percentage=41 elapsed=1m48.544s
+INFO [04-26|21:20:47] Generating DAG in progress               epoch=0 percentage=42 elapsed=1m50.784s
+INFO [04-26|21:20:50] Generating DAG in progress               epoch=0 percentage=43 elapsed=1m53.494s
+INFO [04-26|21:20:52] Generating DAG in progress               epoch=0 percentage=44 elapsed=1m56.108s
+INFO [04-26|21:21:00] Generating DAG in progress               epoch=0 percentage=45 elapsed=2m3.851s
+INFO [04-26|21:21:03] Generating DAG in progress               epoch=0 percentage=46 elapsed=2m6.548s
+INFO [04-26|21:21:05] Generating DAG in progress               epoch=0 percentage=47 elapsed=2m9.321s
+INFO [04-26|21:21:08] Generating DAG in progress               epoch=0 percentage=48 elapsed=2m11.952s
+INFO [04-26|21:21:11] Generating DAG in progress               epoch=0 percentage=49 elapsed=2m14.854s
+INFO [04-26|21:21:13] Generating DAG in progress               epoch=0 percentage=50 elapsed=2m16.900s
+INFO [04-26|21:21:16] Generating DAG in progress               epoch=0 percentage=51 elapsed=2m19.643s
+INFO [04-26|21:21:18] Generating DAG in progress               epoch=0 percentage=52 elapsed=2m22.236s
+INFO [04-26|21:21:21] Generating DAG in progress               epoch=0 percentage=53 elapsed=2m24.762s
+INFO [04-26|21:21:23] Generating DAG in progress               epoch=0 percentage=54 elapsed=2m27.296s
+INFO [04-26|21:21:26] Generating DAG in progress               epoch=0 percentage=55 elapsed=2m29.895s
+INFO [04-26|21:21:28] Generating DAG in progress               epoch=0 percentage=56 elapsed=2m31.716s
+INFO [04-26|21:21:30] Generating DAG in progress               epoch=0 percentage=57 elapsed=2m33.877s
+^CINFO [04-26|21:21:32] Got interrupt, shutting down... 
+
+###CtrlC interrupt to shut it down
+
+INFO [04-26|21:21:32] HTTP endpoint closed                     url=http://127.0.0.1:8545
+INFO [04-26|21:21:32] IPC endpoint closed                      endpoint=/home/deltonmyalil/.ethereum/geth.ipc
+INFO [04-26|21:21:32] Blockchain manager stopped 
+INFO [04-26|21:21:32] Stopping Ethereum protocol 
+INFO [04-26|21:21:32] Ethereum protocol stopped 
+INFO [04-26|21:21:32] Transaction pool stopped 
+INFO [04-26|21:21:32] Database closed                          database=/home/deltonmyalil/ChainSkills/private/geth/chaindata
+deltonmyalil@ubuntu:~/ChainSkills/private$ 
+
