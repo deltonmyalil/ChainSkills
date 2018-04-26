@@ -255,3 +255,87 @@ INFO [04-26|21:21:32] Transaction pool stopped
 INFO [04-26|21:21:32] Database closed                          database=/home/deltonmyalil/ChainSkills/private/geth/chaindata
 deltonmyalil@ubuntu:~/ChainSkills/private$ 
 
+###################################################### Open a new console while the mining is running with ./startnode.sh
+########In the new console, do this
+deltonmyalil@ubuntu:~$ geth attach
+Welcome to the Geth JavaScript console!
+
+instance: Geth/v1.8.6-stable-12683fec/linux-amd64/go1.10
+coinbase: 0xef29e4691da3ef7f730a1908806a99b2855ab080
+at block: 144 (Thu, 26 Apr 2018 22:08:44 IST)
+ datadir: /home/deltonmyalil/ChainSkills/private
+ modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+
+
+###To list the accounts
+> eth.accounts   
+["0xef29e4691da3ef7f730a1908806a99b2855ab080", "0xa2e988320abc4eca7df7d3657c9e401075e254f4", "0xaf33ea8fd03dfd2c6d59466da269d76964730a96"]
+
+###To list the first account
+> eth.coinbase
+"0xef29e4691da3ef7f730a1908806a99b2855ab080"
+
+###To get the balance of the account, pass it as parameter to eth.getBalance
+> eth.getBalance(eth.coinbase)
+573000000000000000000
+###Note that it is represented in wei - equal to 10^-18 ether
+
+###To get results in ether, use this
+> web3.fromWei(eth.getBalance(eth.coinbase),"ether")
+654
+
+###For other accounts, use accounts[i] in parameter as follows
+> web3.fromWei(eth.getBalance(eth.accounts[1]),"ether")
+0
+> web3.fromWei(eth.getBalance(eth.accounts[2]),"ether")
+0
+
+###Stopping and starting miner
+> miner.stop()
+true
+
+###you can add a parameter in start(<numberOfThreadsToMine>)
+> miner.start(2)
+null
+
+###To see the ID
+> net.version
+"4224"
+
+###To unlock account of account[i] with password pass1234 for 300 seconds
+> personal.unlockAccount(eth.accounts[1],"pass1234",300)
+true
+
+###Otherwise use this for unlocking for a default time, you will be prompted for a password
+> personal.unlockAccount(eth.accounts[2])
+Unlock account 0xaf33ea8fd03dfd2c6d59466da269d76964730a96
+Passphrase: 
+true
+
+###Check balance in coinbase
+> web3.fromWei(eth.getBalance(eth.coinbase),"ether")
+873
+
+###Send 10 ethers to accounts[1]; sent in wei, so use web3.toWei(10, "ether") as parameter to value
+> eth.sendTransaction({from: eth.coinbase, to: eth.accounts[1], value: web3.toWei(10, "ether")})
+"0x155b756a8e855759018b10a0aea3b80e10764f8edaa682ac8b74d4691a409794"
+
+###At first it takes time to mine these transactions into the BC
+> web3.fromWei(eth.getBalance(eth.accounts[1]),"ether")
+
+0
+> web3.fromWei(eth.getBalance(eth.accounts[1]),"ether")
+
+0
+
+###Then it gets commited so that when we check balance, we can see the 10 ethers we passed
+> web3.fromWei(eth.getBalance(eth.accounts[1]),"ether")
+10
+> web3.fromWei(eth.getBalance(eth.accounts[2]),"ether")
+10
+
+
+###Exiting
+>exit
+
+####################################################### Now switch back to the mining terminal and hit CtrlC to stop it
