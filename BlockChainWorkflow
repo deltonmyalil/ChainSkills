@@ -1,0 +1,139 @@
+###For my convenience, I am giving comments here as double hashtagged lines
+
+
+deltonmyalil@ubuntu:~$ cd ChainSkills/private
+deltonmyalil@ubuntu:~/ChainSkills/private$ puppeth
++-----------------------------------------------------------+
+| Welcome to puppeth, your Ethereum private network manager |
+|                                                           |
+| This tool lets you create a new Ethereum network down to  |
+| the genesis block, bootnodes, miners and ethstats servers |
+| without the hassle that it would normally entail.         |
+|                                                           |
+| Puppeth uses SSH to dial in to remote servers, and builds |
+| its network components out of Docker containers using the |
+| docker-compose toolset.                                   |
++-----------------------------------------------------------+
+
+Please specify a network name to administer (no spaces or hyphens, please)
+> ChainSkills
+
+Sweet, you can set this via --network=ChainSkills next time!
+
+INFO [04-26|20:10:49] Administering Ethereum network           name=ChainSkills
+WARN [04-26|20:10:49] No previous configurations found         path=/home/deltonmyalil/.puppeth/ChainSkills
+
+What would you like to do? (default = stats)
+ 1. Show network stats
+ 2. Configure new genesis
+ 3. Track new remote server
+ 4. Deploy network components
+> 2
+
+###We need to configure a new genesis node, hence choose 2
+
+
+Which consensus engine to use? (default = clique)
+ 1. Ethash - proof-of-work
+ 2. Clique - proof-of-authority
+> 1
+
+###We use ethash
+
+Which accounts should be pre-funded? (advisable at least one)
+> 0x
+
+###We are not prefunding anything, so hit enter
+
+Specify your chain/network ID if you want an explicit one (default = random)
+> 4224 
+
+###Network ID should not be 1/2/3/4/42 as they are reserved, hence give something like 4224
+
+INFO [04-26|20:20:59] Configured new genesis block 
+
+###We created our genesis block and now we need to export it into a file
+###Use manage existing genesis>>>Export genesis configuration>>>Hit enter to save as default name ChainSkills.json
+
+What would you like to do? (default = stats)
+ 1. Show network stats
+ 2. Manage existing genesis
+ 3. Track new remote server
+ 4. Deploy network components
+> 2
+
+ 1. Modify existing fork rules
+ 2. Export genesis configuration
+ 3. Remove genesis configuration
+> 2
+
+Which file to save the genesis into? (default = ChainSkills.json)
+> 
+INFO [04-26|20:23:14] Exported existing genesis block 
+
+###After this it goes back to the initial menu
+
+What would you like to do? (default = stats)
+ 1. Show network stats
+ 2. Manage existing genesis
+ 3. Track new remote server
+ 4. Deploy network components
+
+###Now thats all we need to do with puppeth - make a .json genesis export to the disk
+###Quit puppeth with Ctrl+C
+
+> ^C
+deltonmyalil@ubuntu:~/ChainSkills/private$ ls
+
+###Now when I list the content in the private folder, we can see ChainSkills.json file
+ChainSkills.json
+deltonmyalil@ubuntu:~/ChainSkills/private$ 
+
+###Open it in atom
+deltonmyalil@ubuntu:~/ChainSkills/private$ atom ChainSkills.json
+
+###Quit atom after checking it and use geth
+
+deltonmyalil@ubuntu:~/ChainSkills/private$ geth --datadir . init ChainSkills.json
+
+###Here in the above command, "." means this directory itself
+###Initialize the BC, It makes two folders in the private directory
+
+INFO [04-26|20:39:40] Maximum peer count                       ETH=25 LES=0 total=25
+INFO [04-26|20:39:40] Allocated cache and file handles         database=/home/deltonmyalil/ChainSkills/private/geth/chaindata cache=16 handles=16
+INFO [04-26|20:39:40] Writing custom genesis block 
+INFO [04-26|20:39:40] Persisted trie from memory database      nodes=354 size=65.02kB time=8.757326ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-26|20:39:40] Successfully wrote genesis state         database=chaindata                                             hash=ee43f7…7d6a0a
+INFO [04-26|20:39:40] Allocated cache and file handles         database=/home/deltonmyalil/ChainSkills/private/geth/lightchaindata cache=16 handles=16
+INFO [04-26|20:39:40] Writing custom genesis block 
+INFO [04-26|20:39:40] Persisted trie from memory database      nodes=354 size=65.02kB time=4.621585ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-26|20:39:40] Successfully wrote genesis state         database=lightchaindata                                             hash=ee43f7…7d6a0a
+deltonmyalil@ubuntu:~/ChainSkills/private$ ls
+ChainSkills.json  geth  keystore
+deltonmyalil@ubuntu:~/ChainSkills/private$ 
+
+###See that everything got init successfully. Two new folders are created. "geth" is for chaindata and "keystore" is for containing accounts
+###Now let us create three new accounts - one for receiving mining rewards and two for selling/buying
+###It will ask a password. I used pass1234 for all three accounts as I am creating three accounts.
+
+deltonmyalil@ubuntu:~/ChainSkills/private$ geth --datadir . account new
+INFO [04-26|20:49:19] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase: 
+Repeat passphrase: 
+Address: {ef29e4691da3ef7f730a1908806a99b2855ab080}
+deltonmyalil@ubuntu:~/ChainSkills/private$ geth --datadir . account new
+INFO [04-26|20:49:45] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase: 
+Repeat passphrase: 
+Address: {a2e988320abc4eca7df7d3657c9e401075e254f4}
+deltonmyalil@ubuntu:~/ChainSkills/private$ geth --datadir . account new
+INFO [04-26|20:49:59] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase: 
+Repeat passphrase: 
+Address: {af33ea8fd03dfd2c6d59466da269d76964730a96}
+deltonmyalil@ubuntu:~/ChainSkills/private$ 
+
+###Note: password: for all three accounts: pass1234
