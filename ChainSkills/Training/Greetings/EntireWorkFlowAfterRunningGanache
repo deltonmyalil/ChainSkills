@@ -1,0 +1,1016 @@
+#### Note that you need Ganache running. Also contains procedure to compile, instantiate and run transactions from a .sol smart contract file
+
+
+
+deltonmyalil@ubuntu:~$ dir
+Blockchain\ Notes\ use\ from\ cloud\ instead.odt  Pycharm
+ChainSkills					  PycharmProjects
+Desktop						  Software
+Documents					  Templates
+Downloads					  Videos
+FullContactAssignment				  dev
+IdeaProjects					  examples.desktop
+Music						  github
+Pictures					  npm-debug.log
+Public
+deltonmyalil@ubuntu:~$ cd ChainSkills
+deltonmyalil@ubuntu:~/ChainSkills$ dir
+Metamask\ details  Training  private
+deltonmyalil@ubuntu:~/ChainSkills$ cd Training
+deltonmyalil@ubuntu:~/ChainSkills/Training$ ls
+Greetings
+deltonmyalil@ubuntu:~/ChainSkills/Training$ cd Greetings
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ clearn
+No command 'clearn' found, did you mean:
+ Command 'clear' from package 'ncurses-bin' (main)
+clearn: command not found
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ clear
+
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (greetings) 
+version: (1.0.0) 
+description: 
+entry point: (index.js) 
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /home/deltonmyalil/ChainSkills/Training/Greetings/package.json:
+
+{
+  "name": "greetings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this ok? (yes) 
+
+┌────────────────────────────────────────────────────────────────┐
+│                    npm update check failed                     │
+│              Try running with sudo or get access               │
+│              to the local update config store via              │
+│ sudo chown -R $USER:$(id -gn $USER) /home/deltonmyalil/.config │
+└────────────────────────────────────────────────────────────────┘
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ npm install web3@0.20.0 solc@0.4.18
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN greetings@1.0.0 No description
+npm WARN greetings@1.0.0 No repository field.
+
++ solc@0.4.18
++ web3@0.20.0
+added 72 packages in 18.382s
+
+┌────────────────────────────────────────────────────────────────┐
+│                    npm update check failed                     │
+│              Try running with sudo or get access               │
+│              to the local update config store via              │
+│ sudo chown -R $USER:$(id -gn $USER) /home/deltonmyalil/.config │
+└────────────────────────────────────────────────────────────────┘
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ sudo npm init
+[sudo] password for deltonmyalil: 
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (greetings) 
+version: (1.0.0) 
+description: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /home/deltonmyalil/ChainSkills/Training/Greetings/package.json:
+
+{
+  "name": "greetings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "solc": "^0.4.18",
+    "web3": "^0.20.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
+
+
+Is this ok? (yes) 
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ sudo npm install web3@0.20.0 solc@0.4.18
+npm ERR! code 1
+npm ERR! Command failed: /usr/bin/git clone -q https://github.com/frozeman/bignumber.js-nolookahead.git /home/deltonmyalil/.npm/_cacache/tmp/git-clone-67639a5e
+npm ERR! /home/deltonmyalil/.npm/_cacache/tmp/git-clone-67639a5e/.git: Permission denied
+npm ERR! 
+
+
+   ╭─────────────────────────────────────╮
+   │                                     │
+   │   Update available 5.6.0 → 6.0.0    │
+   │     Run npm i -g npm to update      │
+   │                                     │
+   ╰─────────────────────────────────────╯
+
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/deltonmyalil/.npm/_logs/2018-04-27T17_06_16_836Z-debug.log
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ npm i -g npm
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/y18n
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/find-npm-prefix
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/hosted-git-info
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/ini
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/init-package-json/node_modules/npm-package-arg
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/is-cidr/node_modules/cidr-regex
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/dotenv
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/npm-package-arg
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/y18n
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/camelcase
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/node_modules/ansi-regex
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/os-locale/node_modules/mem/node_modules/mimic-fn
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path/node_modules/p-locate
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path/node_modules/path-exists
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/pify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/strip-bom
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type/node_modules/pify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/yargs-parser
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/lru-cache
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/duplexify/node_modules/end-of-stream/node_modules/once
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/duplexify/node_modules/end-of-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/end-of-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/pump
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/stream-each
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/node-gyp/node_modules/minimatch/node_modules/brace-expansion
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/agentkeepalive/node_modules/humanize-ms/node_modules/ms
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/cacache/node_modules/y18n
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/http-cache-semantics
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/debug
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/ssri
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/npm-package-arg
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/ssri
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/osenv
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/agentkeepalive
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/agentkeepalive/node_modules/humanize-ms/node_modules/ms
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-cache-semantics
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/debug
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/debug
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/node-fetch-npm/node_modules/encoding/node_modules/iconv-lite
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/node-fetch-npm/node_modules/json-parse-better-errors
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules/es6-promise
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/socks/node_modules/smart-buffer
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/socks
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/minimatch/node_modules/brace-expansion
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/npm-pick-manifest
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/protoduck
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/query-string/node_modules/object-assign
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/query-string/node_modules/strict-uri-encode
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/read-package-json
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/readable-stream/node_modules/process-nextick-args
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/readable-stream/node_modules/string_decoder
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/readable-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/concat-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/duplexify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/pumpify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/cacache
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/concat-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/combined-stream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/fast-deep-equal
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/json-stable-stringify/node_modules/jsonify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/json-stable-stringify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/hawk/node_modules/hoek
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/hawk/node_modules/sntp
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/http-signature/node_modules/sshpk
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/mime-types/node_modules/mime-db
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/mime-types
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/form-data
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/semver
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-package-arg
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/ssri
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/cacache
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/tar/node_modules/minipass
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/tar/node_modules/minizlib
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/tar
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/code-point-at
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/is-fullwidth-code-point
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/strip-ansi
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/ansi-styles
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/supports-color/node_modules/has-flag
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/supports-color
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/configstore/node_modules/make-dir/node_modules/pify
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/configstore/node_modules/make-dir
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/is-installed-globally/node_modules/global-dirs
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/is-installed-globally/node_modules/is-path-inside
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules/lowercase-keys
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-auth-token/node_modules/rc
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-auth-token
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-url/node_modules/rc
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/uuid
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules/spdx-license-ids
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-correct
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm/node_modules/errno/node_modules/prr
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm/node_modules/errno
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm/node_modules/xtend
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/write-file-atomic
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/bin-links
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/configstore
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/iferr
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/init-package-json
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/is-cidr
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/JSONStream
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-registry-client
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/qrcode-terminal
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/query-string
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/read-package-tree
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/retry
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/cacache/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/init-package-json/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/is-cidr/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/os-locale/node_modules/mem/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules/locate-path/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/find-up/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/path-type/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/duplexify/node_modules/end-of-stream/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules/duplexify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/mississippi/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/node-gyp/node_modules/minimatch/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/agentkeepalive/node_modules/humanize-ms/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/cacache/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/promise-retry/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/agentkeepalive/node_modules/humanize-ms/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/http-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/https-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/node-fetch-npm/node_modules/encoding/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/node-fetch-npm/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/agent-base/node_modules/es6-promisify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/make-fetch-happen/node_modules/socks-proxy-agent/node_modules/socks/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/minimatch/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/pacote/node_modules/promise-retry/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/query-string/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/readable-stream/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/npm-profile/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules/ajv/node_modules/json-stable-stringify/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/har-validator/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/hawk/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/http-signature/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/request/node_modules/mime-types/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/tar/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules/string-width/node_modules/strip-ansi/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules/widest-line/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/boxen/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/ansi-styles/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/chalk/node_modules/supports-color/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/configstore/node_modules/make-dir/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/configstore/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/is-installed-globally/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/got/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-auth-token/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/update-notifier/node_modules/latest-version/node_modules/package-json/node_modules/registry-url/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/validate-npm-package-license/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm/node_modules/errno/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/worker-farm/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/gentle-fs
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/fs-write-stream-atomic
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/libnpx/node_modules/yargs/node_modules/cliui/node_modules/wrap-ansi
+npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules/npm/node_modules/move-concurrently/node_modules/copy-concurrently
+npm ERR! path /usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri
+npm ERR! code EACCES
+npm ERR! errno -13
+npm ERR! syscall access
+npm ERR! Error: EACCES: permission denied, access '/usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri'
+npm ERR!  { Error: EACCES: permission denied, access '/usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri'
+npm ERR!   stack: 'Error: EACCES: permission denied, access \'/usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri\'',
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   syscall: 'access',
+npm ERR!   path: '/usr/local/lib/node_modules/npm/node_modules/cacache/node_modules/ssri' }
+npm ERR! 
+npm ERR! Please try running this command again as root/Administrator.
+
+┌────────────────────────────────────────────────────────────────┐
+│                    npm update check failed                     │
+│              Try running with sudo or get access               │
+│              to the local update config store via              │
+│ sudo chown -R $USER:$(id -gn $USER) /home/deltonmyalil/.config │
+└────────────────────────────────────────────────────────────────┘
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/deltonmyalil/.npm/_logs/2018-04-27T17_07_09_503Z-debug.log
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ sudo npm i -g npm
+/usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js
+/usr/local/bin/npx -> /usr/local/lib/node_modules/npm/bin/npx-cli.js
++ npm@6.0.0
+added 244 packages, removed 40 packages and updated 121 packages in 7.54s
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ sudo npm install web3@0.20.0 solc@0.4.18
+npm WARN greetings@1.0.0 No description
+npm WARN greetings@1.0.0 No repository field.
+
++ solc@0.4.18
++ web3@0.20.0
+updated 2 packages in 11.235s
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ atom Greetings.sol
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ dir
+Greetings.sol  node_modules  package-lock.json	package.json
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ node
+> Web3 = require('web3')
+{ [Function: Web3]
+  providers: 
+   { HttpProvider: [Function: HttpProvider],
+     IpcProvider: [Function: IpcProvider] } }
+> web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"))
+Web3 {
+  _requestManager: 
+   RequestManager {
+     provider: 
+      HttpProvider {
+        host: 'http://localhost:7545',
+        timeout: 0,
+        user: undefined,
+        password: undefined },
+     polls: {},
+     timeout: null },
+  currentProvider: 
+   HttpProvider {
+     host: 'http://localhost:7545',
+     timeout: 0,
+     user: undefined,
+     password: undefined },
+  eth: 
+   Eth {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCount' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction' },
+     signTransaction: { [Function: send] request: [Function: bound ], call: 'eth_signTransaction' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Function], lll: [Function], serpent: [Function] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban: 
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  db: 
+   DB {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     putString: { [Function: send] request: [Function: bound ], call: 'db_putString' },
+     getString: { [Function: send] request: [Function: bound ], call: 'db_getString' },
+     putHex: { [Function: send] request: [Function: bound ], call: 'db_putHex' },
+     getHex: { [Function: send] request: [Function: bound ], call: 'db_getHex' } },
+  shh: 
+   Shh {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     version: { [Function: send] request: [Function: bound ], call: 'shh_version' },
+     info: { [Function: send] request: [Function: bound ], call: 'shh_info' },
+     setMaxMessageSize: { [Function: send] request: [Function: bound ], call: 'shh_setMaxMessageSize' },
+     setMinPoW: { [Function: send] request: [Function: bound ], call: 'shh_setMinPoW' },
+     markTrustedPeer: { [Function: send] request: [Function: bound ], call: 'shh_markTrustedPeer' },
+     newKeyPair: { [Function: send] request: [Function: bound ], call: 'shh_newKeyPair' },
+     addPrivateKey: { [Function: send] request: [Function: bound ], call: 'shh_addPrivateKey' },
+     deleteKeyPair: { [Function: send] request: [Function: bound ], call: 'shh_deleteKeyPair' },
+     hasKeyPair: { [Function: send] request: [Function: bound ], call: 'shh_hasKeyPair' },
+     getPublicKey: { [Function: send] request: [Function: bound ], call: 'shh_getPublicKey' },
+     getPrivateKey: { [Function: send] request: [Function: bound ], call: 'shh_getPrivateKey' },
+     newSymKey: { [Function: send] request: [Function: bound ], call: 'shh_newSymKey' },
+     addSymKey: { [Function: send] request: [Function: bound ], call: 'shh_addSymKey' },
+     generateSymKeyFromPassword: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'shh_generateSymKeyFromPassword' },
+     hasSymKey: { [Function: send] request: [Function: bound ], call: 'shh_hasSymKey' },
+     getSymKey: { [Function: send] request: [Function: bound ], call: 'shh_getSymKey' },
+     deleteSymKey: { [Function: send] request: [Function: bound ], call: 'shh_deleteSymKey' },
+     post: { [Function: send] request: [Function: bound ], call: 'shh_post' } },
+  net: 
+   Net {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     listening: [Getter],
+     getListening: { [Function: get] request: [Function: bound ] },
+     peerCount: [Getter],
+     getPeerCount: { [Function: get] request: [Function: bound ] } },
+  personal: 
+   Personal {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     newAccount: { [Function: send] request: [Function: bound ], call: 'personal_newAccount' },
+     importRawKey: { [Function: send] request: [Function: bound ], call: 'personal_importRawKey' },
+     unlockAccount: { [Function: send] request: [Function: bound ], call: 'personal_unlockAccount' },
+     ecRecover: { [Function: send] request: [Function: bound ], call: 'personal_ecRecover' },
+     sign: { [Function: send] request: [Function: bound ], call: 'personal_sign' },
+     sendTransaction: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'personal_sendTransaction' },
+     lockAccount: { [Function: send] request: [Function: bound ], call: 'personal_lockAccount' },
+     listAccounts: [Getter],
+     getListAccounts: { [Function: get] request: [Function: bound ] } },
+  bzz: 
+   Swarm {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     blockNetworkRead: { [Function: send] request: [Function: bound ], call: 'bzz_blockNetworkRead' },
+     syncEnabled: { [Function: send] request: [Function: bound ], call: 'bzz_syncEnabled' },
+     swapEnabled: { [Function: send] request: [Function: bound ], call: 'bzz_swapEnabled' },
+     download: { [Function: send] request: [Function: bound ], call: 'bzz_download' },
+     upload: { [Function: send] request: [Function: bound ], call: 'bzz_upload' },
+     retrieve: { [Function: send] request: [Function: bound ], call: 'bzz_retrieve' },
+     store: { [Function: send] request: [Function: bound ], call: 'bzz_store' },
+     get: { [Function: send] request: [Function: bound ], call: 'bzz_get' },
+     put: { [Function: send] request: [Function: bound ], call: 'bzz_put' },
+     modify: { [Function: send] request: [Function: bound ], call: 'bzz_modify' },
+     hive: [Getter],
+     getHive: { [Function: get] request: [Function: bound ] },
+     info: [Getter],
+     getInfo: { [Function: get] request: [Function: bound ] } },
+  settings: Settings { defaultBlock: 'latest', defaultAccount: undefined },
+  version: 
+   { api: '0.20.0',
+     node: [Getter],
+     getNode: { [Function: get] request: [Function: bound ] },
+     network: [Getter],
+     getNetwork: { [Function: get] request: [Function: bound ] },
+     ethereum: [Getter],
+     getEthereum: { [Function: get] request: [Function: bound ] },
+     whisper: [Getter],
+     getWhisper: { [Function: get] request: [Function: bound ] } },
+  providers: 
+   { HttpProvider: [Function: HttpProvider],
+     IpcProvider: [Function: IpcProvider] },
+  _extend: 
+   { [Function: ex]
+     formatters: 
+      { inputDefaultBlockNumberFormatter: [Function: inputDefaultBlockNumberFormatter],
+        inputBlockNumberFormatter: [Function: inputBlockNumberFormatter],
+        inputCallFormatter: [Function: inputCallFormatter],
+        inputTransactionFormatter: [Function: inputTransactionFormatter],
+        inputAddressFormatter: [Function: inputAddressFormatter],
+        inputPostFormatter: [Function: inputPostFormatter],
+        outputBigNumberFormatter: [Function: outputBigNumberFormatter],
+        outputTransactionFormatter: [Function: outputTransactionFormatter],
+        outputTransactionReceiptFormatter: [Function: outputTransactionReceiptFormatter],
+        outputBlockFormatter: [Function: outputBlockFormatter],
+        outputLogFormatter: [Function: outputLogFormatter],
+        outputPostFormatter: [Function: outputPostFormatter],
+        outputSyncingFormatter: [Function: outputSyncingFormatter] },
+     utils: 
+      { padLeft: [Function: padLeft],
+        padRight: [Function: padRight],
+        toHex: [Function: toHex],
+        toDecimal: [Function: toDecimal],
+        fromDecimal: [Function: fromDecimal],
+        toUtf8: [Function: toUtf8],
+        toAscii: [Function: toAscii],
+        fromUtf8: [Function: fromUtf8],
+        fromAscii: [Function: fromAscii],
+        transformToFullName: [Function: transformToFullName],
+        extractDisplayName: [Function: extractDisplayName],
+        extractTypeName: [Function: extractTypeName],
+        toWei: [Function: toWei],
+        fromWei: [Function: fromWei],
+        toBigNumber: [Function: toBigNumber],
+        toTwosComplement: [Function: toTwosComplement],
+        toAddress: [Function: toAddress],
+        isBigNumber: [Function: isBigNumber],
+        isStrictAddress: [Function: isStrictAddress],
+        isAddress: [Function: isAddress],
+        isChecksumAddress: [Function: isChecksumAddress],
+        toChecksumAddress: [Function: toChecksumAddress],
+        isFunction: [Function: isFunction],
+        isString: [Function: isString],
+        isObject: [Function: isObject],
+        isBoolean: [Function: isBoolean],
+        isArray: [Function: isArray],
+        isJson: [Function: isJson],
+        isBloom: [Function: isBloom],
+        isTopic: [Function: isTopic] },
+     Method: [Function: Method],
+     Property: [Function: Property] } }
+> web3.eth.accounts
+[ '0x9482207da209407590566926f32542f33ae2a172',
+  '0xa2a5e4834863e54f672bcb06e2225d9fb87996c4',
+  '0x866821fc52b52c1cbade542b0237234c8d9e21d1',
+  '0x2dad1fc53a672deb99551b4be6a6f8b658c5e5a0',
+  '0x3e2871b47de117766c9e093fe842373a06e592e4',
+  '0xc0b423d3991e6e588ef73b0cc8d697bc7963d72d',
+  '0x4d85bc112dfffa63dc2f616a0e287ad53d187053',
+  '0x76e31169c23ebf888e02b2b10dec98d58ded19b8',
+  '0x1defeaf2247f171b0abbbb546deaf93e95181639',
+  '0x867fe170c2f0bb6175f3095f27229dc88e9c40a2' ]
+> solc = require('solc')
+{ version: [Function],
+  license: [Function],
+  compile: [Function: compile],
+  compileStandard: [Function: compileStandard],
+  compileStandardWrapper: [Function: compileStandardWrapper],
+  linkBytecode: [Function: linkBytecode],
+  supportsMulti: true,
+  supportsImportCallback: true,
+  supportsStandard: true,
+  loadRemoteVersion: [Function: loadRemoteVersion],
+  setupMethods: [Function: setupMethods] }
+> sourceCode = fs.readFileSync('greetings.sol').toString()
+Error: ENOENT: no such file or directory, open 'greetings.sol'
+    at Object.fs.openSync (fs.js:545:3)
+    at Object.fs.readFileSync (fs.js:451:33)
+> sourceCode = fs.readFileSync('Greetings.sol').toString()
+'//pragma states that solidity version cannot be more than 0.5.0 and less than 0.4.18\npragma solidity ^0.4.18;\n\n//contract is declared as such\ncontract Greetings {\n  string message;\n\n  //constructor to the contract which just initializes the contract field message\n  function Greetings() public {\n    message = "Im ready";\n  }\n\n  //setter for internal state variable(field) message, the local variable/parameter is _message\n  function setGreetings(string _message) public {\n    message = _message;  //initializes message with _message\n  }\n\n  //getter for message\n  //view means it is not allowed to change the state of the contract and calling it wont require a transaction\n  function getGreetings() public view returns (string) {\n    return message;\n  }\n}\n'
+> compiledCode = solc.compile(sourceCode)
+{ contracts: 
+   { ':Greetings': 
+      { assembly: [Object],
+        bytecode: '6060604052341561000f57600080fd5b6040805190810160405280600881526020017f496d2072656164790000000000000000000000000000000000000000000000008152506000908051906020019061005a929190610060565b50610105565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100a157805160ff19168380011785556100cf565b828001600101855582156100cf579182015b828111156100ce5782518255916020019190600101906100b3565b5b5090506100dc91906100e0565b5090565b61010291905b808211156100fe5760008160009055506001016100e6565b5090565b90565b6102e3806101146000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806349da5de414610051578063ca4c3a41146100ae575b600080fd5b341561005c57600080fd5b6100ac600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061013c565b005b34156100b957600080fd5b6100c1610156565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101015780820151818401526020810190506100e6565b50505050905090810190601f16801561012e5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b80600090805190602001906101529291906101fe565b5050565b61015e61027e565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101f45780601f106101c9576101008083540402835291602001916101f4565b820191906000526020600020905b8154815290600101906020018083116101d757829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061023f57805160ff191683800117855561026d565b8280016001018555821561026d579182015b8281111561026c578251825591602001919060010190610251565b5b50905061027a9190610292565b5090565b602060405190810160405280600081525090565b6102b491905b808211156102b0576000816000905550600101610298565b5090565b905600a165627a7a72305820fb144e4b01f4a3ba7046099b966eec3136d2dca318a20936823d49567f88b55c0029',
+        functionHashes: [Object],
+        gasEstimates: [Object],
+        interface: '[{"constant":false,"inputs":[{"name":"_message","type":"string"}],"name":"setGreetings","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getGreetings","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]',
+        metadata: '{"compiler":{"version":"0.4.18+commit.9cf6e910"},"language":"Solidity","output":{"abi":[{"constant":false,"inputs":[{"name":"_message","type":"string"}],"name":"setGreetings","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getGreetings","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}],"devdoc":{"methods":{}},"userdoc":{"methods":{}}},"settings":{"compilationTarget":{"":"Greetings"},"libraries":{},"optimizer":{"enabled":false,"runs":200},"remappings":[]},"sources":{"":{"keccak256":"0x326800b64a0a39bf8eeba3551d8c10bfdb76616b2affaac881cd7883f523a8dd","urls":["bzzr://84f1122a2b18cc5cb2e1636427a08ccb3931e587496f9c989baad3f89580458c"]}},"version":1}',
+        opcodes: 'PUSH1 0x60 PUSH1 0x40 MSTORE CALLVALUE ISZERO PUSH2 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 PUSH1 0x8 DUP2 MSTORE PUSH1 0x20 ADD PUSH32 0x496D207265616479000000000000000000000000000000000000000000000000 DUP2 MSTORE POP PUSH1 0x0 SWAP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 PUSH2 0x5A SWAP3 SWAP2 SWAP1 PUSH2 0x60 JUMP JUMPDEST POP PUSH2 0x105 JUMP JUMPDEST DUP3 DUP1 SLOAD PUSH1 0x1 DUP2 PUSH1 0x1 AND ISZERO PUSH2 0x100 MUL SUB AND PUSH1 0x2 SWAP1 DIV SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 KECCAK256 SWAP1 PUSH1 0x1F ADD PUSH1 0x20 SWAP1 DIV DUP2 ADD SWAP3 DUP3 PUSH1 0x1F LT PUSH2 0xA1 JUMPI DUP1 MLOAD PUSH1 0xFF NOT AND DUP4 DUP1 ADD OR DUP6 SSTORE PUSH2 0xCF JUMP JUMPDEST DUP3 DUP1 ADD PUSH1 0x1 ADD DUP6 SSTORE DUP3 ISZERO PUSH2 0xCF JUMPI SWAP2 DUP3 ADD JUMPDEST DUP3 DUP2 GT ISZERO PUSH2 0xCE JUMPI DUP3 MLOAD DUP3 SSTORE SWAP2 PUSH1 0x20 ADD SWAP2 SWAP1 PUSH1 0x1 ADD SWAP1 PUSH2 0xB3 JUMP JUMPDEST JUMPDEST POP SWAP1 POP PUSH2 0xDC SWAP2 SWAP1 PUSH2 0xE0 JUMP JUMPDEST POP SWAP1 JUMP JUMPDEST PUSH2 0x102 SWAP2 SWAP1 JUMPDEST DUP1 DUP3 GT ISZERO PUSH2 0xFE JUMPI PUSH1 0x0 DUP2 PUSH1 0x0 SWAP1 SSTORE POP PUSH1 0x1 ADD PUSH2 0xE6 JUMP JUMPDEST POP SWAP1 JUMP JUMPDEST SWAP1 JUMP JUMPDEST PUSH2 0x2E3 DUP1 PUSH2 0x114 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x60 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV PUSH4 0xFFFFFFFF AND DUP1 PUSH4 0x49DA5DE4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0xCA4C3A41 EQ PUSH2 0xAE JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE ISZERO PUSH2 0x5C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0xAC PUSH1 0x4 DUP1 DUP1 CALLDATALOAD SWAP1 PUSH1 0x20 ADD SWAP1 DUP3 ADD DUP1 CALLDATALOAD SWAP1 PUSH1 0x20 ADD SWAP1 DUP1 DUP1 PUSH1 0x1F ADD PUSH1 0x20 DUP1 SWAP2 DIV MUL PUSH1 0x20 ADD PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 SWAP4 SWAP3 SWAP2 SWAP1 DUP2 DUP2 MSTORE PUSH1 0x20 ADD DUP4 DUP4 DUP1 DUP3 DUP5 CALLDATACOPY DUP3 ADD SWAP2 POP POP POP POP POP POP SWAP2 SWAP1 POP POP PUSH2 0x13C JUMP JUMPDEST STOP JUMPDEST CALLVALUE ISZERO PUSH2 0xB9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0xC1 PUSH2 0x156 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP1 PUSH1 0x20 ADD DUP3 DUP2 SUB DUP3 MSTORE DUP4 DUP2 DUP2 MLOAD DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 DUP1 DUP4 DUP4 PUSH1 0x0 JUMPDEST DUP4 DUP2 LT ISZERO PUSH2 0x101 JUMPI DUP1 DUP3 ADD MLOAD DUP2 DUP5 ADD MSTORE PUSH1 0x20 DUP2 ADD SWAP1 POP PUSH2 0xE6 JUMP JUMPDEST POP POP POP POP SWAP1 POP SWAP1 DUP2 ADD SWAP1 PUSH1 0x1F AND DUP1 ISZERO PUSH2 0x12E JUMPI DUP1 DUP3 SUB DUP1 MLOAD PUSH1 0x1 DUP4 PUSH1 0x20 SUB PUSH2 0x100 EXP SUB NOT AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP JUMPDEST POP SWAP3 POP POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST DUP1 PUSH1 0x0 SWAP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 PUSH2 0x152 SWAP3 SWAP2 SWAP1 PUSH2 0x1FE JUMP JUMPDEST POP POP JUMP JUMPDEST PUSH2 0x15E PUSH2 0x27E JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 DUP2 PUSH1 0x1 AND ISZERO PUSH2 0x100 MUL SUB AND PUSH1 0x2 SWAP1 DIV DUP1 PUSH1 0x1F ADD PUSH1 0x20 DUP1 SWAP2 DIV MUL PUSH1 0x20 ADD PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 SWAP3 SWAP2 SWAP1 DUP2 DUP2 MSTORE PUSH1 0x20 ADD DUP3 DUP1 SLOAD PUSH1 0x1 DUP2 PUSH1 0x1 AND ISZERO PUSH2 0x100 MUL SUB AND PUSH1 0x2 SWAP1 DIV DUP1 ISZERO PUSH2 0x1F4 JUMPI DUP1 PUSH1 0x1F LT PUSH2 0x1C9 JUMPI PUSH2 0x100 DUP1 DUP4 SLOAD DIV MUL DUP4 MSTORE SWAP2 PUSH1 0x20 ADD SWAP2 PUSH2 0x1F4 JUMP JUMPDEST DUP3 ADD SWAP2 SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 KECCAK256 SWAP1 JUMPDEST DUP2 SLOAD DUP2 MSTORE SWAP1 PUSH1 0x1 ADD SWAP1 PUSH1 0x20 ADD DUP1 DUP4 GT PUSH2 0x1D7 JUMPI DUP3 SWAP1 SUB PUSH1 0x1F AND DUP3 ADD SWAP2 JUMPDEST POP POP POP POP POP SWAP1 POP SWAP1 JUMP JUMPDEST DUP3 DUP1 SLOAD PUSH1 0x1 DUP2 PUSH1 0x1 AND ISZERO PUSH2 0x100 MUL SUB AND PUSH1 0x2 SWAP1 DIV SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 KECCAK256 SWAP1 PUSH1 0x1F ADD PUSH1 0x20 SWAP1 DIV DUP2 ADD SWAP3 DUP3 PUSH1 0x1F LT PUSH2 0x23F JUMPI DUP1 MLOAD PUSH1 0xFF NOT AND DUP4 DUP1 ADD OR DUP6 SSTORE PUSH2 0x26D JUMP JUMPDEST DUP3 DUP1 ADD PUSH1 0x1 ADD DUP6 SSTORE DUP3 ISZERO PUSH2 0x26D JUMPI SWAP2 DUP3 ADD JUMPDEST DUP3 DUP2 GT ISZERO PUSH2 0x26C JUMPI DUP3 MLOAD DUP3 SSTORE SWAP2 PUSH1 0x20 ADD SWAP2 SWAP1 PUSH1 0x1 ADD SWAP1 PUSH2 0x251 JUMP JUMPDEST JUMPDEST POP SWAP1 POP PUSH2 0x27A SWAP2 SWAP1 PUSH2 0x292 JUMP JUMPDEST POP SWAP1 JUMP JUMPDEST PUSH1 0x20 PUSH1 0x40 MLOAD SWAP1 DUP2 ADD PUSH1 0x40 MSTORE DUP1 PUSH1 0x0 DUP2 MSTORE POP SWAP1 JUMP JUMPDEST PUSH2 0x2B4 SWAP2 SWAP1 JUMPDEST DUP1 DUP3 GT ISZERO PUSH2 0x2B0 JUMPI PUSH1 0x0 DUP2 PUSH1 0x0 SWAP1 SSTORE POP PUSH1 0x1 ADD PUSH2 0x298 JUMP JUMPDEST POP SWAP1 JUMP JUMPDEST SWAP1 JUMP STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 CREATE2 EQ 0x4e 0x4b ADD DELEGATECALL LOG3 0xba PUSH17 0x46099B966EEC3136D2DCA318A20936823D 0x49 JUMP PUSH32 0x88B55C0029000000000000000000000000000000000000000000000000000000 ',
+        runtimeBytecode: '60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806349da5de414610051578063ca4c3a41146100ae575b600080fd5b341561005c57600080fd5b6100ac600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061013c565b005b34156100b957600080fd5b6100c1610156565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101015780820151818401526020810190506100e6565b50505050905090810190601f16801561012e5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b80600090805190602001906101529291906101fe565b5050565b61015e61027e565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101f45780601f106101c9576101008083540402835291602001916101f4565b820191906000526020600020905b8154815290600101906020018083116101d757829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061023f57805160ff191683800117855561026d565b8280016001018555821561026d579182015b8281111561026c578251825591602001919060010190610251565b5b50905061027a9190610292565b5090565b602060405190810160405280600081525090565b6102b491905b808211156102b0576000816000905550600101610298565b5090565b905600a165627a7a72305820fb144e4b01f4a3ba7046099b966eec3136d2dca318a20936823d49567f88b55c0029',
+        srcmap: '142:613:0:-;;;266:59;;;;;;;;300:20;;;;;;;;;;;;;;;;;;:7;:20;;;;;;;;;;;;:::i;:::-;;142:613;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;',
+        srcmapRuntime: '142:613:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;425:112;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;675:78;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;425:112:0;487:8;477:7;:18;;;;;;;;;;;;:::i;:::-;;425:112;:::o;675:78::-;720:6;;:::i;:::-;741:7;734:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;675:78;:::o;142:613::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o' } },
+  sourceList: [ '' ],
+  sources: { '': { AST: [Object] } } }
+> clear
+ReferenceError: clear is not defined
+> contractABI = JSON.parse(compiledCode.contracts[':Greetings'.interface)
+contractABI = JSON.parse(compiledCode.contracts[':Greetings'.interface)
+                                                                      ^
+
+SyntaxError: Unexpected token )
+
+> contractABI = JSON.parse(compiledCode.contracts[':Greetings'.interface)
+contractABI = JSON.parse(compiledCode.contracts[':Greetings'.interface)
+                                                                      ^
+
+SyntaxError: Unexpected token )
+
+> contractABI = JSON.parse(compiledCode.contracts[':Greetings'].interface)
+[ { constant: false,
+    inputs: [ [Object] ],
+    name: 'setGreetings',
+    outputs: [],
+    payable: false,
+    stateMutability: 'nonpayable',
+    type: 'function' },
+  { constant: true,
+    inputs: [],
+    name: 'getGreetings',
+    outputs: [ [Object] ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function' },
+  { inputs: [],
+    payable: false,
+    stateMutability: 'nonpayable',
+    type: 'constructor' } ]
+> greetingsContract = web3.eth.contract(contractABI)
+ContractFactory {
+  eth: 
+   Eth {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCount' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction' },
+     signTransaction: { [Function: send] request: [Function: bound ], call: 'eth_signTransaction' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Function], lll: [Function], serpent: [Function] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban: 
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  abi: 
+   [ { constant: false,
+       inputs: [Array],
+       name: 'setGreetings',
+       outputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'function' },
+     { constant: true,
+       inputs: [],
+       name: 'getGreetings',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' },
+     { inputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'constructor' } ],
+  new: { [Function] getData: [Function: bound ] } }
+> byteCode = compiledCode.contracts[':greetings'].bytecode
+TypeError: Cannot read property 'bytecode' of undefined
+> byteCode = compiledCode.contracts[':Greetings'].bytecode
+'6060604052341561000f57600080fd5b6040805190810160405280600881526020017f496d2072656164790000000000000000000000000000000000000000000000008152506000908051906020019061005a929190610060565b50610105565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100a157805160ff19168380011785556100cf565b828001600101855582156100cf579182015b828111156100ce5782518255916020019190600101906100b3565b5b5090506100dc91906100e0565b5090565b61010291905b808211156100fe5760008160009055506001016100e6565b5090565b90565b6102e3806101146000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806349da5de414610051578063ca4c3a41146100ae575b600080fd5b341561005c57600080fd5b6100ac600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061013c565b005b34156100b957600080fd5b6100c1610156565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101015780820151818401526020810190506100e6565b50505050905090810190601f16801561012e5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b80600090805190602001906101529291906101fe565b5050565b61015e61027e565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101f45780601f106101c9576101008083540402835291602001916101f4565b820191906000526020600020905b8154815290600101906020018083116101d757829003601f168201915b5050505050905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061023f57805160ff191683800117855561026d565b8280016001018555821561026d579182015b8281111561026c578251825591602001919060010190610251565b5b50905061027a9190610292565b5090565b602060405190810160405280600081525090565b6102b491905b808211156102b0576000816000905550600101610298565b5090565b905600a165627a7a72305820fb144e4b01f4a3ba7046099b966eec3136d2dca318a20936823d49567f88b55c0029'
+> greetingsDeployed = greetingsContract.new({data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
+Contract {
+  _eth: 
+   Eth {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCount' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction' },
+     signTransaction: { [Function: send] request: [Function: bound ], call: 'eth_signTransaction' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Function], lll: [Function], serpent: [Function] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban: 
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  transactionHash: '0x581270a031197059d2307fbc38a5aebb6f3954fa0d07053ea2bb1d49f72e4e00',
+  address: undefined,
+  abi: 
+   [ { constant: false,
+       inputs: [Array],
+       name: 'setGreetings',
+       outputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'function' },
+     { constant: true,
+       inputs: [],
+       name: 'getGreetings',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' },
+     { inputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'constructor' } ] }
+> greetingsDeployed.address
+'0x92eb0902a69f9bac3e1884926e885b4c2ee97b70'
+> greetingsInstance = greetingsContract.at(greetingsDeployed.address)
+Contract {
+  _eth: 
+   Eth {
+     _requestManager: RequestManager { provider: [HttpProvider], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt: 
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCount' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction' },
+     signTransaction: { [Function: send] request: [Function: bound ], call: 'eth_signTransaction' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Function], lll: [Function], serpent: [Function] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban: 
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  transactionHash: null,
+  address: '0x92eb0902a69f9bac3e1884926e885b4c2ee97b70',
+  abi: 
+   [ { constant: false,
+       inputs: [Array],
+       name: 'setGreetings',
+       outputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'function' },
+     { constant: true,
+       inputs: [],
+       name: 'getGreetings',
+       outputs: [Array],
+       payable: false,
+       stateMutability: 'view',
+       type: 'function' },
+     { inputs: [],
+       payable: false,
+       stateMutability: 'nonpayable',
+       type: 'constructor' } ],
+  setGreetings: 
+   { [Function: bound ]
+     request: [Function: bound ],
+     call: [Function: bound ],
+     sendTransaction: [Function: bound ],
+     estimateGas: [Function: bound ],
+     getData: [Function: bound ],
+     string: [Circular] },
+  getGreetings: 
+   { [Function: bound ]
+     request: [Function: bound ],
+     call: [Function: bound ],
+     sendTransaction: [Function: bound ],
+     estimateGas: [Function: bound ],
+     getData: [Function: bound ],
+     '': [Circular] },
+  allEvents: [Function: bound ] }
+> greetingsInstance.getGreetings()
+'Im ready'
+> greetingsInstance.setGreetings("Hello Delton". {from:web3.eth.accounts[0]})
+greetingsInstance.setGreetings("Hello Delton". {from:web3.eth.accounts[0]})
+                                               ^
+
+SyntaxError: Unexpected token {
+
+> greetingsInstance.setGreetings("Hello Delton", {from:web3.eth.accounts[0]})
+'0xc4482e6534d189c70f6a0cae2effde6dfa8bb2dfde0a3f5020b628f796708d4a'
+> greetingsInstance.getGreetings()
+'Hello Delton'
+> .exit
+deltonmyalil@ubuntu:~/ChainSkills/Training/Greetings$ 
+
